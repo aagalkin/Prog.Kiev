@@ -8,15 +8,6 @@ public class Main {
 
     private static int min;
 
-    static void printResult(){
-        System.out.println("Вы проехали " + bmw.getSessionMileage() + " за " + min + " минут. \n" +
-                " Потрачено " + bmw.getSessionConsumeFuel() + " топлива. \n" +
-                "Топливо в баке было: " + (bmw.getFuel() + bmw.getSessionConsumeFuel()) + ", \n" +
-                " осталось: " + bmw.getFuel() +
-                " Был пробег: " + bmw.getMileage() + ", \n" +
-                " стал: " + (bmw.getMileage() + bmw.getSessionMileage()));
-    }
-
     public static void main(String[] args) {
         Car bmw = new Car("BMW", 4.0);
 
@@ -41,7 +32,12 @@ public class Main {
             }
             else {
                 System.out.println("Бензин закончился");
-                printResult();
+                System.out.println("Вы проехали " + bmw.getSessionMileage() + " за " + min + " минут. \n" +
+                        " Потрачено " + bmw.getSessionConsumeFuel() + " топлива. \n" +
+                        "Топливо в баке было: " + (bmw.getFuel() + bmw.getSessionConsumeFuel()) + ", \n" +
+                        " осталось: " + bmw.getFuel() +
+                        " Был пробег: " + bmw.getMileage() + ", \n" +
+                        " стал: " + (bmw.getMileage() + bmw.getSessionMileage()));
                 bmw.turnOff();
                 break;
             }
