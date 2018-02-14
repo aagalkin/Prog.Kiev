@@ -50,13 +50,19 @@ public class StudentList {
     }
 
     public void remove(int student){
-        Student tmpList[] = new Student[list.length - 1];
-        for (int i = 0, j = 0; i < list.length; i++){
-            if (i != student) {
-                tmpList[j] = list[i];
-                j++;
+        if (student >= 0) {
+            Student tmpList[] = new Student[list.length - 1];
+            for (int i = 0, j = 0; i < list.length; i++) {
+                if (i != student) {
+                    tmpList[j] = list[i];
+                    j++;
+                }
             }
+
+            list = Arrays.copyOf(tmpList, tmpList.length);
         }
-        list = Arrays.copyOf(tmpList, tmpList.length);
+        else {
+            System.out.println("Такого студента нет в списке!");
+        }
     }
 }
