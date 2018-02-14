@@ -27,6 +27,10 @@ public class Main{
         print(n);
         n = studentList.findBySurname("Petrov");
         print(n);
+        print(n);
+
+
+
 
         System.out.println("Размер списка студентов: " + studentList.getListLength());
         for (int i = 0; i < studentList.getListLength(); i++){
