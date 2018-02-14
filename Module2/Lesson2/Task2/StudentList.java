@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Date;
 
 public class StudentList {
-    private Student list[] = new Student[1];
+    private Student list[] = new Student[0];
     private int p = 0;
 
     public void add(Student s){
