@@ -1,17 +1,33 @@
-public class Phone {
+public abstract class Phone {
     protected String name;
+    protected int imei;
     protected boolean touch;
     protected boolean hasWifi;
     protected int screenSize;
     protected int callCount;
     protected int SMSCount;
+    protected int takenCallCount;
+    protected SimCard sim;
 
     public Phone(){
         name = "Phone";
     }
 
+    public void answer(){
+        System.out.println(getName() + " is answer to call");
+        takenCallCount++;
+    }
+
+    public int getTakenCallCount() {
+        return takenCallCount;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public int getImei() {
+        return imei;
     }
 
     public boolean isTouch(){
@@ -42,13 +58,22 @@ public class Phone {
         SMSCount++;
     }
 
-    public void call(String number){
-        System.out.println("Phone is calling to " + number);
+    public int getNumber(){
+        return sim.getNumber();
+    }
+
+    public void info(){
+        System.out.println("phone name is " + getName() + ", imei: " + getImei() + ", number: " + getNumber() + ",\n" +
+                "отправлено смс: " + getSMSCount() + ", сделано звонков: " + getCallCount() + ", принято звонков: " + getTakenCallCount());
+    }
+
+    public void call(int number){
+        System.out.println(getName() + " is calling to " + number);
         addCallCount();
+        Operator.findAbonent(number);
     }
 
     public void sendSMS(String number, String message){
-        System.out.println("Phone is sending SMS " + message + " to " + number);
-        addSMSCount();
+        System.out.println(getName() + " is sending SMS" + message + " to " + number);
     }
 }

@@ -1,33 +1,21 @@
 public class Main {
 
     public static void main(String[] args) {
-        Phone phone = new Phone();
-        Samsung samsung = new Samsung();
+        Nokia3310 nokia3310 = new Nokia3310();
+        IPhone5 iPhone5 = new IPhone5();
         SamsungS4 samsungS4 = new SamsungS4();
 
-        call(phone, number);
-        call(samsung, number);
-        call(samsungS4, number);
-        call(samsung, number);
 
-        sendSMS(phone, number, message);
-        sendSMS(samsung, number, message);
-        sendSMS(samsungS4, number, message);
+        nokia3310.call(iPhone5.getNumber());
+        nokia3310.call(samsungS4.getNumber());
+        iPhone5.call(samsungS4.getNumber());
+        samsungS4.call(nokia3310.getNumber());
 
-        System.out.println("Телефон " + phone.getName() + " Сделал " + phone.getCallCount() + " звонков и отравил " + phone.getSMSCount() + " SMS.");
-        System.out.println("Телефон " + samsung.getName() + " Сделал " + samsung.getCallCount() + " звонков и отравил " + samsung.getSMSCount() + " SMS.");
-        System.out.println("Телефон " + samsungS4.getName() + " Сделал " + samsungS4.getCallCount() + " звонков и отравил " + samsungS4.getSMSCount() + " SMS.");
-    }
 
-    private static String number = "555-55-55";
-    private static String message = "Hello World";
 
-    private static void call(Phone phone, String number){
-        phone.call(number);
-    }
-
-    private static void sendSMS(Phone phone, String number, String message){
-        phone.sendSMS(number, message);
+        nokia3310.info();
+        iPhone5.info();
+        samsungS4.info();
     }
 }
 
