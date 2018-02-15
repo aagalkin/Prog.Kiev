@@ -33,32 +33,6 @@ public class Main {
                 sb.append(hLine);
                 sb.append(" ");
             }
-//            sb.append(" ");
-//            sb.append(" ");
-//            sb.append(" ");
-//            sb.append(" ");
-//            sb.append(" ");
-//            sb.append(" ");
-//            sb.append(" ");
-//            sb.append(" ");
-//            sb.append(" ");
-//            sb.append(" ");
-//            sb.append(" ");
-//            sb.append(" ");
-//            sb.append(" ");
-//            sb.append(" ");
-//            sb.append(" ");
-//            sb.append(" ");
-//            sb.append(" ");
-//            sb.append(" ");
-//            sb.append(" ");
-//            sb.append(" ");
-//            sb.append(" ");
-//            sb.append(" ");
-//            sb.append(" ");
-//            sb.append(" ");
-//            sb.append(" ");
-//            sb.append(" ");
             sb.append(vLine);
             sb.append("\n");
         }
