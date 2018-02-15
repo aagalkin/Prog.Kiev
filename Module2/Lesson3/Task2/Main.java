@@ -28,6 +28,38 @@ public class Main {
         sb.append("\n");
         for (int i = 0; i < height; i++) {
             sb.append(vLine);
+            sb.append(" ");
+            for (int k = 0; k < width; k++) {
+                sb.append(hLine);
+                sb.append(" ");
+            }
+//            sb.append(" ");
+//            sb.append(" ");
+//            sb.append(" ");
+//            sb.append(" ");
+//            sb.append(" ");
+//            sb.append(" ");
+//            sb.append(" ");
+//            sb.append(" ");
+//            sb.append(" ");
+//            sb.append(" ");
+//            sb.append(" ");
+//            sb.append(" ");
+//            sb.append(" ");
+//            sb.append(" ");
+//            sb.append(" ");
+//            sb.append(" ");
+//            sb.append(" ");
+//            sb.append(" ");
+//            sb.append(" ");
+//            sb.append(" ");
+//            sb.append(" ");
+//            sb.append(" ");
+//            sb.append(" ");
+//            sb.append(" ");
+//            sb.append(" ");
+//            sb.append(" ");
+            sb.append(vLine);
             sb.append("\n");
         }
         sb.append(LB);
