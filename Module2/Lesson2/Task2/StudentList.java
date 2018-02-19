@@ -56,7 +56,7 @@ public class StudentList {
     }
 
     public void remove(int student){
-        if (student >= 0) {
+        if (student >= 0 && student < list.length) {
             try {
                 System.arraycopy(list, student + 1, list, student, list.length - (student + 1));//Если будем удалять последнего студента, то может вылезти за края массмва.
                 list[list.length - 1] = null;
