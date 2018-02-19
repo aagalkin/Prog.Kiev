@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Main{
@@ -7,8 +8,8 @@ public class Main{
     private static void print(int n){
         if (!(n < 0)) {
             System.out.println("Имя: " + studentList.get(n).getName() + "\n" +
-                               "фалимия: " + studentList.get(n).getSurname() + "\n" +
-                               "Дата рождения: " + studentList.get(n).getBirth() + "\n");
+                    "фалимия: " + studentList.get(n).getSurname() + "\n" +
+                    "Дата рождения: " + studentList.get(n).getBirth() + "\n");
         }
         else {
             System.out.println("Такого студента нет в списке!");

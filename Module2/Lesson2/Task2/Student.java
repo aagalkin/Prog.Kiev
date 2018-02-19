@@ -34,6 +34,4 @@ public class Student {
     public void setBirth(Date birth) {
         this.birth = birth;
     }
-
-
 }

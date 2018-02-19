@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Date;
 
 public class StudentList {
-    private Student list[] = new Student[0];
+    private Student list[] = new Student[100];
     private int p = 0;
 
     public void add(Student s){
@@ -24,8 +24,10 @@ public class StudentList {
 
     public int findByName(String name){
         for (int i = 0; i < list.length; i++){
-            if (list[i].getName().equalsIgnoreCase(name)){
-                return i;
+            if(list[i] != null) {
+                if (list[i].getName().equalsIgnoreCase(name)) {
+                    return i;
+                }
             }
         }
         return -1;
@@ -33,8 +35,10 @@ public class StudentList {
 
     public int findBySurname(String surname){
         for (int i = 0; i < list.length; i++){
-            if (list[i].getSurname().equalsIgnoreCase(surname)){
-                return i;
+            if (list[i] != null) {
+                if (list[i].getSurname().equalsIgnoreCase(surname)) {
+                    return i;
+                }
             }
         }
         return -1;
@@ -42,8 +46,10 @@ public class StudentList {
 
     public int findByBirth(Date birth){
         for (int i = 0; i < list.length; i++){
-            if (list[i].getBirth().equals(birth)){
-                return i;
+            if (list[i] != null) {
+                if (list[i].getBirth().equals(birth)) {
+                    return i;
+                }
             }
         }
         return -1;
@@ -51,15 +57,13 @@ public class StudentList {
 
     public void remove(int student){
         if (student >= 0) {
-            Student tmpList[] = new Student[list.length - 1];
             for (int i = 0, j = 0; i < list.length; i++) {
                 if (i != student) {
-                    tmpList[j] = list[i];
+                    list[j] = list[i];
                     j++;
                 }
             }
-
-            list = Arrays.copyOf(tmpList, tmpList.length);
+            p--;
         }
         else {
             System.out.println("Такого студента нет в списке!");
