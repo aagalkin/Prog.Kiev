@@ -15,10 +15,10 @@ public class Triangle extends Figure {
 
     @Override
     public double getSquare(){
-        return getHeight(a, b, c) * (a / 2);
+        return getHeight() * (a / 2);
     }
 
-    public double getHeight(double a, double b, double c){
+    public double getHeight(){
         double p = 0.5*(a + b + c);
         return 2 * Math.sqrt(p * (p - a) * (p - b) * (p - c))/a;
     }
