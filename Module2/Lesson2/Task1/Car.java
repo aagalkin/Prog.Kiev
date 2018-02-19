@@ -1,5 +1,3 @@
-package com.company;
-
 public class Car {
     private String name;
     private Engine engine;

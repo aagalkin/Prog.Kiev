@@ -1,5 +1,3 @@
-package com.company;
-
 public class Engine {
     private double capacity;
     private double mileage;

@@ -1,8 +1,6 @@
-package com.company;
-
 public class GasTank {
     private int capacity;
-    private double fuel = 10;
+    private double fuel = 2;
 
     public GasTank(){
         capacity = 100;
