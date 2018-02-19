@@ -11,7 +11,12 @@ public class SimCard {
         return number;
     }
 
-    public void call(){
-        phone.answer();
+//    public void call(){
+//        phone.answer();
+//    }
+
+
+    public Phone getPhone() {
+        return phone;
     }
 }

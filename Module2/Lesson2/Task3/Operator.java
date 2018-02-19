@@ -20,12 +20,12 @@ public class Operator {
         }
     }
 
-    public static void findAbonent(int number){
+    public static Phone findAbonent(int number){
         if (numberList.get(number) != null) {
-            numberList.get(number).call();
+            return numberList.get(number).getPhone();
         }
         else {
-            System.out.println("Такого абонента не существует!");
+            return null;
         }
     }
 

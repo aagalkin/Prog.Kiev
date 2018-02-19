@@ -70,7 +70,12 @@ public abstract class Phone {
     public void call(int number){
         System.out.println(getName() + " is calling to " + number);
         addCallCount();
-        Operator.findAbonent(number);
+        if(Operator.findAbonent(number) != null){
+            Operator.findAbonent(number).answer();
+        }
+        else {
+            System.out.println("Такого абонента не существует!");
+        }
     }
 
     public void sendSMS(String number, String message){
