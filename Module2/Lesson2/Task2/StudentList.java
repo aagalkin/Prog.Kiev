@@ -57,13 +57,16 @@ public class StudentList {
 
     public void remove(int student){
         if (student >= 0) {
-            for (int i = 0, j = 0; i < list.length; i++) {
-                if (i != student) {
-                    list[j] = list[i];
-                    j++;
-                }
+            try {
+                System.arraycopy(list, student + 1, list, student, list.length - (student + 1));//Если будем удалять последнего студента, то может вылезти за края массмва.
+                list[list.length - 1] = null;
             }
-            p--;
+            catch (ArrayIndexOutOfBoundsException e){
+                list[list.length - 1] = null;
+            }
+            finally {
+                p--;
+            }
         }
         else {
             System.out.println("Такого студента нет в списке!");
