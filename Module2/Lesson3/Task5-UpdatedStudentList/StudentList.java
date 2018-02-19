@@ -24,8 +24,10 @@ public class StudentList {
 
     public int findByName(String name){
         for (int i = 0; i < list.length; i++){
-            if (list[i].getName().equalsIgnoreCase(name)){
-                return i;
+            if(list[i] != null) {
+                if (list[i].getName().equalsIgnoreCase(name)) {
+                    return i;
+                }
             }
         }
         return -1;
@@ -33,8 +35,10 @@ public class StudentList {
 
     public int findBySurname(String surname){
         for (int i = 0; i < list.length; i++){
-            if (list[i].getSurname().equalsIgnoreCase(surname)){
-                return i;
+            if (list[i] != null) {
+                if (list[i].getSurname().equalsIgnoreCase(surname)) {
+                    return i;
+                }
             }
         }
         return -1;
@@ -42,25 +46,27 @@ public class StudentList {
 
     public int findByBirth(Date birth){
         for (int i = 0; i < list.length; i++){
-            if (list[i].getBirth().equals(birth)){
-                return i;
+            if (list[i] != null) {
+                if (list[i].getBirth().equals(birth)) {
+                    return i;
+                }
             }
         }
         return -1;
     }
 
     public void remove(int student) throws MyException{
-        if (student >= 0 && student <= list.length){
-            Student tmpList[] = new Student[list.length - 1];
-            for (int i = 0, j = 0; i < list.length; i++) {
-                if (i != student) {
-                    tmpList[j] = list[i];
-                    j++;
-                }
+        if (student >= 0 && student < list.length){
+            try {
+                System.arraycopy(list, student + 1, list, student, list.length - (student + 1));//Если будем удалять последнего студента, то может вылезти за края массмва.
+                list[list.length - 1] = null;
             }
-
-            list = Arrays.copyOf(tmpList, tmpList.length);
-            p--;
+            catch (ArrayIndexOutOfBoundsException e){
+                list[list.length - 1] = null;
+            }
+            finally {
+                p--;
+            }
         }
         else {
             throw new MyException("Такого студента нет в списке!");
