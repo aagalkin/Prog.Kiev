@@ -1,9 +1,12 @@
 import java.io.*;
-import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Main{
     private static BufferedWriter writer;
     private static StringBuilder tab = new StringBuilder("");
+    private static SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+    private static Date fileCreationTime = new Date();
 
     public static void main(String[] args) throws IOException{
         try {
@@ -31,32 +34,32 @@ public class Main{
 
     private static void writeDirectoryInfo(String dir) throws IOException{
         File folder = new File(dir);
-        String[] files;
+        File[] files;
         if (folder.isDirectory() && folder.exists()){
-            files = folder.list();
+            files = folder.listFiles();
         }
         else {
             throw new FileNotFoundException("Folder is not exist!");
         }
 
-        writer.write(tab + dir + ":");
+        writer.write(tab + folder.getAbsolutePath() + ":");
         writer.newLine();
         tab.append("    ");
-        System.out.println(dir + ":");
-        for (String file : files){
-            if (!file.equals("info.txt")) {
-                if (new File(dir + "\\" + file).isFile()) {
-                    writer.write(tab + file);
-                    writer.newLine();
-                    System.out.println(file);
-                }
-                else {
-                    writeDirectoryInfo(dir + "\\" + file);
+        if (files != null) {
+            for (File file : files) {
+                if (!file.getName().equals("info.txt")) {
+                    if (file.isFile()) {
+                        fileCreationTime.setTime(file.lastModified());
+                        writer.write(tab + file.getAbsolutePath() + " Дата создания: " + format.format(fileCreationTime));
+                        writer.newLine();
+                    } else {
+                        writeDirectoryInfo(dir + "\\" + file.getName());
+                    }
                 }
             }
-        }
-        if (tab.length() > 0){
-            tab.delete(tab.length() - 4, tab.length());
+            if (tab.length() > 0) {
+                tab.delete(tab.length() - 4, tab.length());
+            }
         }
     }
 }
